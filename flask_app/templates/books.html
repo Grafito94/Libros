@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-6">
+                <h2>Libros</h2>
+                <form action="/books" method = "post" class = "form-group">
+                    <div>
+                        <label for="tittle">Tittle</label>
+                        <input type="text" id = "tittle" name = "tittle" class = "form-control">
+                    </div>
+                    <div>
+                        <label for="pages">Paginas</label>
+                        <input type="text" id ="pages" name ="pages" class = "form-control">
+                    </div>
+                    <div>
+                        <input type="submit" value = "Crear libro" class = "btn btn-warning">
+                    </div>
+                </form>
+                <div>
+                    <a href="/newAutor" class = "btn btn-warning">Home</a>
+                </div>
+            </div>
+            <div class = "col-6">
+                <h2>Libros</h2>
+                {% for x in todos_libros %}
+                <p>                   
+                    <a href="/visualizar/{{x.id}}">{{x.tittle}}</a>    
+                </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
